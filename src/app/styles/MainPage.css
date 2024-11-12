@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+  font-family: 'Awakening';
+  src: url('../fonts/AWAKENNING.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.main-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #121212;
+}
+
+/* Background effect */
+.background-film-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*background-image: url('../assets/images/FilmEffect.jpg');*/
+  background-size: cover;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+/* Movie image positions */
+.movie-image {
+  position: absolute;
+  width: 30vw;
+  height: 40vh;
+  object-fit: cover;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.image-left {
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%) rotate(-10deg);
+}
+
+.image-top {
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+.image-right {
+  top: 50%;
+  right: 10%;
+  transform: translate(50%, -50%) rotate(10deg);
+}
+
+.image-bottom {
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, 50%) rotate(5deg);
+}
+
+/* Title card in the center */
+.title-card {
+  position: relative;
+  width: 524px;
+  height: 269px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  backdrop-filter: blur(10px); 
+}
+
+.title-text {
+  font-family: 'Awakening', sans-serif;
+  font-size: 48px;
+  color: #930D0D;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+}
+
+.play-button {
+  margin-top: 20px;
+  width: 82px;
+  height: 82px;
+  border-radius: 26px;
+  /*background: url('../assets/images/RedGradient.jpg') no-repeat center center;*/
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+}
+
+.play-button span {
+  color: #fff;
+  font-size: 40px;
+}
+
+.title-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(33%);
+  background-size: cover;
+  opacity: 0.2;
+}
+
+.title-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*background: url('../assets/images/NoiseEffect.jpg') no-repeat center center;*/
+  background-size: cover;
+  opacity: 0.2;
+}
