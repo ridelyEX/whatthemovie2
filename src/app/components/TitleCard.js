@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/TitleCard.css';
+import Link from 'next/link';
 
 const TitleCard = () => {
   return (
@@ -7,11 +8,11 @@ const TitleCard = () => {
       <div className="title-text-container">
         <h1 className="title-text">Movie Guesser</h1>
       </div>
-      <div className="play-button-container">
-        <button className="play-button">
-          <span className="material-symbols-outlined">play_circle</span>
-        </button>
-      </div>
+      <nav>
+        <div className="play-button-container">
+        <Link href="/MainPage">Play</Link>
+        </div>
+      </nav>
     </div>
   );
 };

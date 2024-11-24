@@ -1,0 +1,34 @@
+
+.option-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .option-buttons button {
+    padding: 15px 25px;
+    background-color: #525451;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .option-buttons button:hover {
+    background-color: #930D0D;
+  }
+
+  @font-face {
+    font-family: 'Gabriel Sans Cond';
+    src: url('../fonts/TTF/GabrielSansCond.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Awakening';
+    src: url('../fonts/TTF/AWAKENNING.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }

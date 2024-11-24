@@ -1,28 +1,25 @@
 import React from 'react';
 import TitleCard from '../components/TitleCard';
-import '../styles/MainPage.css';
+import '../styles/MenuPage.css';
+import GenreCard from '../components/GenreCard';
 
-const MainPage = () => {
-  const movieImages = [
-    { src: 'image1.jpg', alt: 'Movie 1', className: 'image-left' },
-    { src: 'image2.jpg', alt: 'Movie 2', className: 'image-top' },
-    { src: 'image3.jpg', alt: 'Movie 3', className: 'image-right' },
-    { src: 'image4.jpg', alt: 'Movie 4', className: 'image-bottom' }
+export default function MenuPage(){
+  const genres = [
+    { name: 'Sci-Fi', image: 'scifi.jpg' },
+    { name: 'Romance', image: 'romance.jpg' },
+    { name: 'Animated', image: 'animated.jpg' },
+    { name: 'Comedy', image: 'comedy.jpg' },
+    { name: 'Disney', image: 'disney.jpg' },
+    { name: 'Horror', image: 'horror.jpg' },
   ];
 
   return (
-    <div className="main-page">
-      <div className="background-film-effect"></div>
-
-      {/* Image placements */}
-      {movieImages.map((image, index) => (
-        <img key={index} src={image.src} alt={image.alt} className={`movie-image ${image.className}`} />
-      ))}
-
-      {/* Title card with play button */}
-      <TitleCard />
+    <div className="menu-page">
+      <div className="genre-grid">
+        {genres.map((genre, index) => (
+          <GenreCard key={index} genre={genre.name} image={genre.image} />
+        ))}
+      </div>
     </div>
   );
 };
-
-export default MainPage;

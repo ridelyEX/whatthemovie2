@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'Awakening';
-  src: url('../fonts/AWAKENNING.ttf') format('truetype');
+  src: url('../app/fonts/AWAKENNING.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

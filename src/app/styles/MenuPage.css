@@ -2,14 +2,14 @@
 
 @font-face {
   font-family: 'Gabriel Sans Cond';
-  src: url('../app/fonts/GabrielSansCond.ttf');
+  src: url('../fonts/GabrielSansCond.ttf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Awakening';
-  src: url('../app/fonts/AWAKENNING.ttf') format('truetype');
+  src: url('../fonts/AWAKENNING.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
