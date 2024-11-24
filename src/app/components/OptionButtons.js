@@ -1,11 +1,23 @@
-import React from 'react';
+"use client"
+import React, { useState, useEffect }from 'react';
 import '../styles/OptionButtons.css';
 
 const OptionButtons = ({ options, onOptionClick }) => {
+
+  const [opc, mixOpc] = useState([]);
+
+  function mezclarOpc(array){
+    return [...array].sort(() => Math.random());
+  };
+
+  useEffect(() => {
+    mixOpc(mezclarOpc(options));
+  }, [options]); 
+
   return (
     <div className="option-buttons">
-      {options.map((option, index) => (
-        <button key={index} onClick={() => onOptionClick()}>
+      {opc.map((option, index) => (
+        <button key={index} onClick={() => onOptionClick({option})}>
           {option}
         </button>
       ))}

@@ -10,35 +10,41 @@ export default function GenrePage(){
   const number = searchParams.get('number');
   const genre= searchParams.get('genre')
   const [idx, setIdx] = useState(0);
+  const [win, setWin] = useState(null);
   
   const [movies, setMovies] = useState([]);
   const [images, setImages]=useState([]);
+  const [hasWon, setHasWon] = useState(false);
 
   const fetchMovies = async () => {
     try {
-      setLoading(true);
-      const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=878&api_key=ada074b6a5691631b70bfbcaf68ebad9");
+      const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres="+number+"&api_key=ada074b6a5691631b70bfbcaf68ebad9");
       const data = await response.json();
       console.log(data);
       const m=[];
       for(let i=0;i<4;i++){
+        let idx=getRand(20);
         m.push({
-          title: data.results[i].original_title,
-          id: data.results[i].id
+          title: data.results[idx].original_title,
+          id: data.results[idx].id
         });
       }
       setMovies(m);
     } catch (error) {
       console.error('Error al llamar a la API:', error);
-    } finally {
-      setLoading(false);
     }
   };
 
   const fetchImages=async()=>{
     try {
-      setLoading(true);
-      const response = await fetch("https://api.themoviedb.org/3/movie/912649/images?api_key=ada074b6a5691631b70bfbcaf68ebad9");
+      console.log(movies);
+      let id;
+      for(let i=0;i<4;i++){
+        if(movies[i].title===win){
+          id=movies[i].id;
+        }
+      }
+      const response = await fetch("https://api.themoviedb.org/3/movie/"+id+"/images?api_key=ada074b6a5691631b70bfbcaf68ebad9");
       const data = await response.json();
       console.log(data);
       const im=[];
@@ -48,22 +54,42 @@ export default function GenrePage(){
       setImages(im);
     } catch (error) {
       console.error('Error al llamar a la API:', error);
-    } finally {
-      setLoading(false);
     }
   };
 
   const handleOptionClick = (option) => {
+    console.log(option.option)
+    console.log(win);
+    if (option.option === win) {
+      setHasWon(true);
+    }else{
+      console.log("ta mal")
+    }
   };
 
   const handleImageClick = () => {
     setIdx(prevIdx => (prevIdx + 1) % images.length);
   };
 
+  function getRand(max){
+    return Math.floor(Math.random()*max);
+  }
+
   useEffect(() => {
     fetchMovies();
-    fetchImages();
   }, []);
+
+  useEffect(() => {
+    if (movies.length > 0) {
+      const random = Math.floor(Math.random() * 4);
+      setWin(movies[random].title);
+    }
+  }, [movies]);
+
+  useEffect(() => {
+    fetchImages();
+    console.log(images);
+  }, [movies,win]);
 
   return (
     <div className="genre-page">
@@ -72,9 +98,9 @@ export default function GenrePage(){
         <MovieFrame image={images[idx]} onClick={handleImageClick} />
       </div>
       <div>
-          <OptionButtons options={movies.map(movie => movie.title)} onOptionClick={handleOptionClick()}></OptionButtons>
+          <OptionButtons options={movies.map(movie => movie.title)} onOptionClick={handleOptionClick}></OptionButtons>
       </div>
-      <p>{number}</p>
+      {hasWon && <p>¡Ganaste!</p>}
     </div>
   );
 };
