@@ -3,16 +3,16 @@ import { useEffect, useState } from 'react';
 import MovieFrame from '../components/MovieFrame';
 import { useSearchParams } from 'next/navigation';
 import '../styles/GenrePage.css';
+import OptionButtons from '../components/OptionButtons';
 
 export default function GenrePage(){
   const searchParams = useSearchParams();
   const number = searchParams.get('number');
   const genre= searchParams.get('genre')
   const [idx, setIdx] = useState(0);
-
+  
   const [movies, setMovies] = useState([]);
   const [images, setImages]=useState([]);
-  const [loading, setLoading] = useState(true); 
 
   const fetchMovies = async () => {
     try {
@@ -27,7 +27,7 @@ export default function GenrePage(){
           id: data.results[i].id
         });
       }
-      setMovies()=m;
+      setMovies(m);
     } catch (error) {
       console.error('Error al llamar a la API:', error);
     } finally {
@@ -38,14 +38,14 @@ export default function GenrePage(){
   const fetchImages=async()=>{
     try {
       setLoading(true);
-      const response = await fetch("https://api.themoviedb.org/3/movie/912649/images&api_key=ada074b6a5691631b70bfbcaf68ebad9");
+      const response = await fetch("https://api.themoviedb.org/3/movie/912649/images?api_key=ada074b6a5691631b70bfbcaf68ebad9");
       const data = await response.json();
       console.log(data);
-      const i=[];
+      const im=[];
       for(let i=0;i<4;i++){
-        i.push(data.backdrops[i].file_path);
+        im[i]="https://image.tmdb.org/t/p/original"+data.backdrops[i].file_path;
       }
-      setImages()=i;
+      setImages(im);
     } catch (error) {
       console.error('Error al llamar a la API:', error);
     } finally {
@@ -69,7 +69,10 @@ export default function GenrePage(){
     <div className="genre-page">
       <h1>{genre} Movies</h1>
       <div className="carousel-container">
-        <MovieFrame images={images} idx={idx} />
+        <MovieFrame image={images[idx]} onClick={handleImageClick} />
+      </div>
+      <div>
+          <OptionButtons options={movies.map(movie => movie.title)} onOptionClick={handleOptionClick()}></OptionButtons>
       </div>
       <p>{number}</p>
     </div>

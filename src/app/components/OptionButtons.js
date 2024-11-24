@@ -5,7 +5,7 @@ const OptionButtons = ({ options, onOptionClick }) => {
   return (
     <div className="option-buttons">
       {options.map((option, index) => (
-        <button key={index} onClick={() => onOptionClick(option)}>
+        <button key={index} onClick={() => onOptionClick()}>
           {option}
         </button>
       ))}
