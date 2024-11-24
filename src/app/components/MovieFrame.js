@@ -1,7 +1,8 @@
+"use client"
 import React from 'react';
-import './MovieFrame.css';
+import '../styles/MovieFrame.css';
 
-const MovieFrame = ({ image, isCorrect }) => {
+const MovieFrame = ({ image, idx }) => {
   return (
     <div className={`movie-frame ${isCorrect ? 'correct' : ''}`}>
       <img src={image} alt="movie frame" />

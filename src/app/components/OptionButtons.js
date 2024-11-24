@@ -1,5 +1,5 @@
 import React from 'react';
-import './OptionButtons.css';
+import '../styles/OptionButtons.css';
 
 const OptionButtons = ({ options, onOptionClick }) => {
   return (

@@ -1,11 +1,11 @@
 import React from 'react';
-import TitleCard from '../components/TitleCard';
 import '../styles/MenuPage.css';
 import GenreCard from '../components/GenreCard';
+import Link from 'next/link';
 
 export default function MenuPage(){
   const genres = [
-    { name: 'Sci-Fi', image: 'scifi.jpg' },
+    { name: 'Sci-Fi', image: 'scifi.jpg', number:878 },
     { name: 'Romance', image: 'romance.jpg' },
     { name: 'Animated', image: 'animated.jpg' },
     { name: 'Comedy', image: 'comedy.jpg' },
@@ -17,7 +17,8 @@ export default function MenuPage(){
     <div className="menu-page">
       <div className="genre-grid">
         {genres.map((genre, index) => (
-          <GenreCard key={index} genre={genre.name} image={genre.image} />
+          <GenreCard key={index} genre={genre.name} image={genre.image} number={genre.number
+          } />
         ))}
       </div>
     </div>
