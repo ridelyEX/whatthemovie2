@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { methods as auth } from "../utilis/firebase";
 import { useRouter } from 'next/navigation';
+import '../styles/UserPages.css';
 
 export default function SignUpPage(){
     const router = useRouter();
@@ -16,23 +17,27 @@ export default function SignUpPage(){
     };
     
     return (
-        <div>
-          <h2>Registrarse</h2>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>Name:</label>
-              <input type="text" value={name} onChange={(e) => setName(e.target.value)} required/>
+        <div className="user-page">
+          <div className="user-grid">
+            <div className="user-card">
+              <h1>Registrarse</h1>
+              <form onSubmit={handleSubmit}>
+                <div className="user-inpbut">
+                  <label>Name:</label>
+                  <input type="text" value={name} onChange={(e) => setName(e.target.value)} required/>
+                </div>
+                <div className="user-inpbut">
+                  <label>Email:</label>
+                  <input type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} required/>
+                </div>
+                <div className="user-inpbut">
+                  <label>Password:</label>
+                  <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                </div>
+                <button type="submit">Registarse</button>
+              </form>
             </div>
-            <div >
-              <label>Email:</label>
-              <input type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} required/>
-            </div>
-            <div >
-              <label>Password:</label>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
-            </div>
-            <button type="submit">Registarse</button>
-          </form>
+          </div>
         </div>
       );
 }

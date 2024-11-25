@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+  font-family: 'Gabriel Sans Cond';
+  src: url('../fonts/GabrielSansCond.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Awakening';
+  src: url('../fonts/AWAKENNING.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: 'Awakening', sans-serif;
+  text-align: center;
+  color: #930D0D;
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.user-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  background-color: #121212;
+  color: #D8D8D8;
+}
+
+.title {
+  font-family: 'Awakening', sans-serif;
+  font-size: 64px;
+  color: #930D0D;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+.user-grid {
+  /*display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;*/
+  width: 60%;
+  height: 50vw;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-card {
+    width: 60%;
+    height: auto;
+    padding: 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    align-items: center;
+    border-radius: 30px;
+    background: #212121;
+    box-shadow: 5px 5px 30px rgb(25, 25, 25),
+                -5px -5px 30px rgb(60, 60, 60);
+}
+
+.user-inpbut {
+  font-family: 'GabrielSansCond', sans-serif;
+  margin-bottom: 5vw;
+  font-size: 20px;
+  margin-bottom: 20%;
+  text-transform: uppercase;
+}
+ 
+input {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-weight: 500;
+    font-size: .8vw;
+    color: #fff;
+    width: 80%;
+    background-color: rgb(28,28,30);
+    box-shadow: 0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent;
+    border-radius: 0.4vw;
+    border: none;
+    outline: none;
+    padding: 0.4vw;
+    max-width: 190px;
+    transition: .4s;
+  }
+  
+  input:hover {
+    box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+  }
+  
+  input:focus {
+    box-shadow: 0 0 0 .15vw #930D0D;
+  }
+
+.genre-card:hover .genre-text {
+  color: #FE5631;
+}
+
+.genre-card:hover img {
+  filter: grayscale(0);
+}
+
+.start-button {
+  margin-top: 40px;
+  padding: 15px 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: #930D0D;
+  transition: background-color 0.3s ease-in-out;
+}

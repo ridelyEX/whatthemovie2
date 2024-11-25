@@ -11,7 +11,7 @@
     font-weight: normal;
     font-style: normal;
   }
-  .genre-card {
+  /*.genre-card {
       position: relative;
       width: 240px;
       height: 152px;
@@ -26,7 +26,7 @@
       height: 100%;
       object-fit: cover;
       filter: grayscale(100%) contrast(2) brightness(0.8);
-    }
+    }*/
     
     .genre-card .genre-text {
       position: absolute;
