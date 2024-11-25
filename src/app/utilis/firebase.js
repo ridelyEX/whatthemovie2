@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBPiTfYmPC7kAkOhdLHPtsbpS0hnik7h9I",
@@ -17,9 +17,36 @@ const db=getFirestore(app);
 
 async function addUsr(data){
   console.log(data);
-  const docRef = await addDoc(collection(db, "UsrMovies"), data);
-  console.log("si se agrego");
-  return docRef.id;
+  try{
+    await addDoc(collection(db, "UsrMovies"), data);
+    console.log("si se agrego");
+  }catch(e){
+    console.log("No se agrego");
+  }
 }
 
-export default addUsr;
+async function checkUsr(email,pass){
+  try {
+    //const q = query(collection(db, "UsrMovies"), where("email", "==", email));
+    const querySnapshot = await getDocs(collection(db, "UsrMovies"), where("email", "==", email));
+    if (querySnapshot.empty) {
+      console.log("no existe");
+      return false;
+    }
+
+    querySnapshot.forEach((doc) => {
+      const userData = doc.data();
+      if (userData.password === pass) {
+        return true;
+      }else{
+        alert("ta mal")
+      }
+    });
+  } catch (error) {
+    console.error("Error al comprobar usuario:", error);
+    return false;
+  }
+  
+}
+
+export default { addUsr, checkUsr };

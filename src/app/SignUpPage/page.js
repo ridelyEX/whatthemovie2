@@ -1,22 +1,18 @@
 "use client"
 import { useState } from "react";
 import addUsr from "../utilis/firebase";
+import { useRouter } from 'next/navigation';
 
 export default function SignUpPage(){
-
+    const router = useRouter();
     const [name, setName] = useState("");
     const [correo, setCorreo] = useState("");
     const [password, setPassword] = useState("");
-    const [message, setMessage] = useState("");
 
     async function handleSubmit(e){
         e.preventDefault();
-        try {
-            addUsr({usuario:name, email:correo, pass:password, points :0})
-        } catch (error) {
-            console.error("Error adding document: ", error);
-            setMessage("Error registering user.");
-        }
+        await addUsr({usuario:name, email:correo, pass:password, points :0})
+        router.push('/LoginPage');
     };
     
     return (
@@ -37,7 +33,6 @@ export default function SignUpPage(){
             </div>
             <button type="submit">Registarse</button>
           </form>
-          {message && <p>{message}</p>}
         </div>
       );
 }
