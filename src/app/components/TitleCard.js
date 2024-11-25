@@ -8,7 +8,7 @@ const TitleCard = () => {
       <nav>
       <div className="title-text-container">
         <h1 className="title-text">Movie Guesser</h1>
-        <Link href="MainPage"><h1>Play</h1></Link>
+        <Link href="MainPage">Play</Link>
         <Link href="/LoginPage">Iniciar Sesion</Link>
         <Link href="/SignUpPage">Registrarse</Link>
       </div>

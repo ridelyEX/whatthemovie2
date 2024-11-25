@@ -5,10 +5,10 @@ import Link from 'next/link';
 
 export default function MenuPage(){
   const genres = [
-    { name: 'Sci-Fi', image: 'scifi.jpg', number:878 },
-    { name: 'Animated', image: 'animated.jpg', number:16},
-    { name: 'Comedy', image: 'comedy.jpg', number:35 },
-    { name: 'Horror', image: 'horror.jpg', number:27 },
+    { name: 'Sci-Fi', image: 'scifi.png', number:878 },
+    { name: 'Animated', image: 'animated.png', number:16},
+    { name: 'Comedy', image: 'comedy.png', number:35 },
+    { name: 'Horror', image: 'horror.png', number:27 },
   ];
 
   return (
