@@ -1,5 +1,5 @@
 export default function WinPage(){
     return(
-        <p>Ganaste jodido</p>
+        <p>¡Ganaste!</p>
     )
 }
