@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBPiTfYmPC7kAkOhdLHPtsbpS0hnik7h9I",
@@ -16,9 +16,13 @@ const app = initializeApp(firebaseConfig);
 const db=getFirestore(app);
 
 async function addUsr(data){
-  console.log(data);
-  await addDoc(collection(db, "UsrMovies"), data);
-  console.log("si se agrego");
+  try{
+    console.log(data);
+    const doc=await addDoc(collection(db, "UsrMovies"), data);
+    console.log("si se agrego");
+  }catch(e){
+    console.error("error: "+e);
+  }
 }
 
 async function checkUsr(email,pass){
