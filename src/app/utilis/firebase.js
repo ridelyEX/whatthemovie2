@@ -17,12 +17,8 @@ const db=getFirestore(app);
 
 async function addUsr(data){
   console.log(data);
-  try{
-    await addDoc(collection(db, "UsrMovies"), data);
-    console.log("si se agrego");
-  }catch(e){
-    console.log("No se agrego");
-  }
+  await addDoc(collection(db, "UsrMovies"), data);
+  console.log("si se agrego");
 }
 
 async function checkUsr(email,pass){
@@ -49,4 +45,7 @@ async function checkUsr(email,pass){
   
 }
 
-export default { addUsr, checkUsr };
+export const methods={
+  checkUsr,
+  addUsr
+};

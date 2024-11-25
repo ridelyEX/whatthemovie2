@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import addUsr from "../utilis/firebase";
+import { methods as auth } from "../utilis/firebase";
 import { useRouter } from 'next/navigation';
 
 export default function SignUpPage(){
@@ -11,7 +11,7 @@ export default function SignUpPage(){
 
     async function handleSubmit(e){
         e.preventDefault();
-        await addUsr({usuario:name, email:correo, pass:password, points :0})
+        await auth.addUsr({usuario:name, email:correo, pass:password, points :0})
         router.push('/LoginPage');
     };
     

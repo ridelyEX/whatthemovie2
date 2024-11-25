@@ -1,21 +1,21 @@
 "use client"
-import { useRouter } from "next/navigation";
-import  
+import { useRouter } from "next/navigation"; 
+import { methods as auth } from "../utilis/firebase";
 import { useState } from "react";
 
 export default function LoginPage(){
     const router = useRouter();
-    const [name, setName] = useState("");
     const [correo, setCorreo] = useState("");
     const [password, setPassword] = useState("");
 
     async function handleSubmit(e){
         e.preventDefault();
-        const ver=await checkUsr({email:correo, pass:password})
+        const ver=await auth.checkUsr({email:correo, pass:password})
         if(ver){
-
+            router.push('/MainPage');
+        }else{
+            console.log("ta mal el usr")
         }
-        router.push('/LoginPage');
     };
     
     return (
