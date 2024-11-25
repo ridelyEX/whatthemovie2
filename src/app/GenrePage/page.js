@@ -4,8 +4,10 @@ import MovieFrame from '../components/MovieFrame';
 import { useSearchParams } from 'next/navigation';
 import '../styles/GenrePage.css';
 import OptionButtons from '../components/OptionButtons';
+import { useRouter } from 'next/navigation';
 
 export default function GenrePage(){
+  const router = useRouter();
   const searchParams = useSearchParams();
   const number = searchParams.get('number');
   const genre= searchParams.get('genre')
@@ -58,12 +60,13 @@ export default function GenrePage(){
   };
 
   const handleOptionClick = (option) => {
-    console.log(option.option)
+    console.log(option.option);
     console.log(win);
     if (option.option === win) {
       setHasWon(true);
-    }else{
-      console.log("ta mal")
+      router.push('/WinPage');
+    } else {
+      console.log("ta mal");
     }
   };
 
