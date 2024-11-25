@@ -1,6 +1,7 @@
 import React from 'react';
 import './MainPage.css'
 import TitleCard from './components/TitleCard';
+import Link from 'next/link';
 
 export default function Home() {
   const movieImages = [
@@ -21,6 +22,7 @@ export default function Home() {
 
       {/* Title card with play button */}
       <TitleCard />
+      
     </div>
   );
 }
